@@ -27,7 +27,11 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="zl2-c0-Cex"/>
                                     <barButtonItem title="Item" systemItem="rewind" id="R0b-rt-3aw"/>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="a4K-xP-FoV"/>
-                                    <barButtonItem title="Item" systemItem="play" id="cAJ-cP-eYC"/>
+                                    <barButtonItem title="Item" systemItem="play" id="cAJ-cP-eYC">
+                                        <connections>
+                                            <action selector="playPause:" destination="BYZ-38-t0r" id="yWL-UQ-xs5"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="JgQ-vh-b2k"/>
                                     <barButtonItem title="Item" systemItem="fastForward" id="Ouu-h4-boG"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ke1-f0-7vh"/>
@@ -43,8 +47,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Road Trip DJ" id="DCR-Kq-cZh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AJS-mM-xQr"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AJS-mM-xQr">
+                            <connections>
+                                <action selector="addMusic:" destination="BYZ-38-t0r" id="Axa-qS-HDZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="playerBar" destination="Ij7-KK-JZn" id="4QO-jW-sY4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
