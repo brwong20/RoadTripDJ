@@ -18,25 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Ij7-KK-JZn">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Ij7-KK-JZn" customClass="PlayerBar">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cgU-IB-VWx"/>
                                     <constraint firstAttribute="width" constant="375" id="p0H-Qp-LCX"/>
                                 </constraints>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zl2-c0-Cex"/>
-                                    <barButtonItem title="Item" systemItem="rewind" id="R0b-rt-3aw"/>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="a4K-xP-FoV"/>
-                                    <barButtonItem title="Item" systemItem="play" id="cAJ-cP-eYC">
-                                        <connections>
-                                            <action selector="playPause:" destination="BYZ-38-t0r" id="yWL-UQ-xs5"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="JgQ-vh-b2k"/>
-                                    <barButtonItem title="Item" systemItem="fastForward" id="Ouu-h4-boG"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ke1-f0-7vh"/>
-                                </items>
+                                <items/>
                                 <color key="tintColor" red="0.015686274510000001" green="0.87450980389999999" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <real key="value" value="44"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

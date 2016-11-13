@@ -14,7 +14,8 @@
 
 @property (nonatomic, strong) MPMediaItemCollection *playlist;
 @property (nonatomic, strong) MPMusicPlayerController *player;
-@property (weak, nonatomic) IBOutlet UIToolbar *playerBar;
+@property (nonatomic, weak) IBOutlet UIToolbar *playerBar;
+@property (nonatomic, strong) UIBarButtonItem *playButton;
 
 @end
 
@@ -33,7 +34,32 @@
     }else{
         [self.player play];
     }
+    
+    [self setPlayButtonForPlaybackState:self.player.playbackState];
 }
+
+- (UIBarButtonItem *)playButtonItemForPlaybackState:(MPMusicPlaybackState)state{
+    UIBarButtonSystemItem systemItem;
+    if(state == MPMusicPlaybackStatePlaying){
+        systemItem = UIBarButtonSystemItemPause;
+    }else{
+        systemItem = UIBarButtonSystemItemPlay;
+    }
+    
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:systemItem target:self action:@selector(playPause:)];
+    
+    return buttonItem;
+}
+
+- (void)setPlayButtonForPlaybackState:(MPMusicPlaybackState)playbackState{
+    NSMutableArray *barButtonItems = [self.playerBar.items mutableCopy];
+    NSUInteger index = [barButtonItems indexOfObjectIdenticalTo:self.playButton];
+    [barButtonItems removeObjectAtIndex:index];
+    [barButtonItems insertObject:[self playButtonItemForPlaybackState:playbackState]  atIndex:index];
+    
+    [self.playerBar setItems:barButtonItems];
+}
+
 
 
 #pragma mark - IBActions
@@ -47,7 +73,9 @@
 }
 
 - (IBAction)playPause:(id)sender {
+    self.playButton = sender;
     [self togglePlayPause];
+    
 }
 
 #pragma mark - MPMediaPickerController Delegate methods
